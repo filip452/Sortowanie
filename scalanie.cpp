@@ -1,4 +1,3 @@
-//Zrodla: https://binarnie.pl/sortowanie-przez-scalanie/
 template<class szab>
 void scal(szab* tab, int lewy, int srodek, int prawy)
 {

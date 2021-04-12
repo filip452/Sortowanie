@@ -1,4 +1,3 @@
-//Zrodla: http://www.cplusplus.com/doc/oldtutorial/templates/
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
@@ -24,8 +23,8 @@ int main(){
     int ROZ[5]={10000,50000,100000,500000,1000000};
     float PROC[8]={0,0.25,0.5,0.75,0.95,0.99,0.997,1};
 
-    //ofstream czasy("Qsort.txt");
-    ofstream czasy("Ssort.txt");
+    ofstream czasy("Qsort.txt");
+    //ofstream czasy("Ssort.txt");
     //ofstream czasy("Ksort.txt");
     for(int P=0;P<8;P++)
     {
@@ -40,34 +39,34 @@ int main(){
 
             float czas=0;
 
-            for(int j=0;j<100;j++)
+            for(int j=0;j<100;j++)                          //sortuje 100 tablic
             {
                 if(procent==0)
-                    for(int i=0;i<rozmiar;i++)
+                    for(int i=0;i<rozmiar;i++)              //losuje wszystkie elementy
                     {
                         tab[i]=(rand()%rozmiar)+1;
                     }
                 else
-                    if(procent==1)
+                    if(procent==1)                           //sortuje elementy malejaco
                         for(int i=0;i<rozmiar;i++)
                     {
                         tab[i]=rozmiar-i;
                     }
                     else
                     {
-                        for(int i=0;i<procent*rozmiar;i++)
+                        for(int i=0;i<procent*rozmiar;i++)   //sortuje n elemntow
                         {
                             tab[i]=i;
                         }
-                        for(int i=procent*rozmiar;i<rozmiar;i++)
+                        for(int i=procent*rozmiar;i<rozmiar;i++)    //losuje pozostale elementy
                         {
                             tab[i]=(rand()%rozmiar)+1+procent*100;
                         }
                     }
 
                 auto t_start=std::chrono::high_resolution_clock::now();              //uruchom zegar
-                //quick_sort(tab,0,rozmiar-1);
-                scalSort(tab,0,rozmiar-1);
+                quick_sort(tab,0,rozmiar-1);
+                //scalSort(tab,0,rozmiar-1);
                 //kopcowanie(tab,rozmiar);
                 auto t_koniec=std::chrono::high_resolution_clock::now();             //zatrzymaj zegar
                 czas+=std::chrono::duration<double,std::milli>(t_koniec-t_start).count();

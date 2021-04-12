@@ -1,4 +1,3 @@
-//Zrodla: http://www.algorytm.edu.pl/algorytmy-maturalne/quick-sort.html
 #include <algorithm>
 
 template<class szab>
